@@ -1,24 +1,16 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faXmark,
 	faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Layout } from '../components/template/Layout';
 
 const Home: NextPage = () => {
 	return (
-		<div>
-			<Head>
-				<title>Next.jsでポケモンAPI取得してみた</title>
-				<meta
-					name="description"
-					content="create picture_book with pokemon_api"
-				/>
-			</Head>
-
-			<main className="container mx-auto text-center min-h-screen flex flex-col items-center justify-center">
+		<Layout>
+			<div className="flex flex-col items-center justify-center text-center min-h-screen">
 				<h1 className="flex justify-center items-center w-full mb-10">
 					<div className="w-1/4">
 						<a
@@ -41,24 +33,11 @@ const Home: NextPage = () => {
 				<Link href="pokemon">
 					<a className="text-2xl underline font-bold">
 						ポケモン図鑑へGo
-						<FontAwesomeIcon
-							icon={faArrowRightToBracket}
-							className='ml-2'
-						/>
+						<FontAwesomeIcon icon={faArrowRightToBracket} className="ml-2" />
 					</a>
 				</Link>
-			</main>
-
-			<footer className="text-center p-6 border-t-2">
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by <span>ポケモン図鑑だよ</span>
-				</a>
-			</footer>
-		</div>
+			</div>
+		</Layout>
 	);
 };
 

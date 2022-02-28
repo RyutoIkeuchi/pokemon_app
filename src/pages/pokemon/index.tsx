@@ -1,7 +1,5 @@
-import useSWR from 'swr';
-import axios from 'axios';
-import Image from 'next/image'
 import { useState } from 'react';
+import { Layout } from '../../components/template/Layout';
 import PokemonCard from '../../components/template/PokemonCard';
 
 const PokemonList = () => {
@@ -21,16 +19,18 @@ const PokemonList = () => {
 	const onResetNumber = () => {
 		setPokemonNumber(1);
 	};
-	
+
 	return (
-		<div>
+		<Layout>
+			<div>
 				{pokemonCount.map((d, index) => (
 					<PokemonCard key={index} count={index + pokemonNumber} />
-			))}
-			<button onClick={onResetNumber}>最初に戻る</button>
-			<button onClick={onPrevPage}>前のページ</button>
-			<button onClick={onNextPage}>次のページ</button>
-		</div>
+				))}
+				<button onClick={onResetNumber}>最初に戻る</button>
+				<button onClick={onPrevPage}>前のページ</button>
+				<button onClick={onNextPage}>次のページ</button>
+			</div>
+		</Layout>
 	);
 };
 
