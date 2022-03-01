@@ -28,7 +28,7 @@ const PokemonList = () => {
 			>
 				最初に戻る
 			</button>
-			<div className="grid grid-cols-4 gap-4 mb-10">
+			<div className="grid grid-cols-4 gap-8 mb-10">
 				{pokemonCount.map((d, index) => (
 					<PokemonCard key={index} count={index + pokemonNumber} />
 				))}
