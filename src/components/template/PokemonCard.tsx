@@ -60,29 +60,24 @@ const PokemonCard = (props: { count: number }) => {
 			</div>
 			<div className="bg-white rounded-xl border-gray-400 border-2 p-4">
 				<h6 className="text-2xl mb-2">{data.name}</h6>
-				<ul className="flex justify-start">
-					{data.types.map(
-						(type:PokemonTypes) => (
-							<li
-								key={type.slot}
-								className="bg-orange-500 text-white px-2 rounded mr-2"
-							>
-								{type.type.name}
-							</li>
-						)
-					)}
-				</ul>
+				<div className="flex justify-around">
+					<div className="flex justify-center">
+						<p>【身長】</p>
+						<p>
+							<b>{data.height * 10}</b>cm
+						</p>
+					</div>
+					<p>/</p>
+					<div className="flex justify-center">
+						<p>【体重】</p>
+						<p>
+							<b>{data.weight / 10}</b>kg
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
-};
-
-type PokemonTypes = {
-	slot: number;
-	type: {
-		name: string;
-		url: string;
-	};
 };
 
 export default PokemonCard;
