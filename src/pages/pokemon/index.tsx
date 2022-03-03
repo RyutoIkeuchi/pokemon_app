@@ -7,16 +7,19 @@ const PokemonList = () => {
 	const pokemonCount = [...Array(20)];
 
 	const onNextPage = () => {
+		scrollTo(0, 0);
 		const newNumber = pokemonNumber + 20;
 		setPokemonNumber(newNumber);
 	};
 
 	const onPrevPage = () => {
+		scrollTo(0, 0);
 		const newNumber = pokemonNumber - 20;
 		setPokemonNumber(newNumber);
 	};
 
 	const onResetNumber = () => {
+		scrollTo(0, 0);
 		setPokemonNumber(1);
 	};
 
@@ -38,12 +41,8 @@ const PokemonList = () => {
 					<button
 						onClick={onPrevPage}
 						disabled={pokemonNumber == 1}
-						className={
-							`bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l' +
-							${pokemonNumber === 1
-								? 'cursor-not-allowed opacity-50'
-								: 'hover:bg-gray-400'}`
-						}
+						className={`bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l' +
+							${pokemonNumber === 1 ? 'cursor-not-allowed opacity-50' : 'hover:bg-gray-400'}`}
 					>
 						前のページ
 					</button>
