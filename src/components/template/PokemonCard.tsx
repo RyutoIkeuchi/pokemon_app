@@ -65,14 +65,14 @@ const PokemonCard = (props: { count: number }) => {
 						<h6 className="text-2xl mb-2">{data.name}</h6>
 						<div className="flex justify-around">
 							<div className="flex justify-center items-baseline">
-								<p className="text-sm">【身長】</p>
+								<p className="text-sm">【高さ】</p>
 								<p>
 									<b>{data.height * 10}</b>cm
 								</p>
 							</div>
 							<p>/</p>
 							<div className="flex justify-center items-baseline">
-								<p className="text-sm">【体重】</p>
+								<p className="text-sm">【重さ】</p>
 								<p>
 									<b>{data.weight / 10}</b>kg
 								</p>
