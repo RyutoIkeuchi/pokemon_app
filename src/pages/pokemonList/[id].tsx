@@ -57,9 +57,26 @@ const PokemonPage = () => {
 		}
 	};
 
+	const changeStatusName = (name: string) => {
+		switch (name) {
+			case 'hp':
+				return 'HP';
+			case 'attack':
+				return 'こうげき';
+			case 'defense':
+				return 'ぼうぎょ';
+			case 'special-attack':
+				return 'とくこう';
+			case 'special-defense':
+				return 'とくぼう';
+			case 'speed':
+				return 'スピード';
+		}
+	};
+
 	return (
 		<Layout>
-			<div className="flex justify-center items-center">
+			<div className="flex justify-center items-center mb-14">
 				<div className="shadow-xl py-10 pl-10 pr-36 rounded-3xl mr-20">
 					<p className="font-bold">No.{router.query.id}</p>
 					<h3 className="font-bold text-3xl mb-4">{species.names[0].name}</h3>
@@ -87,6 +104,24 @@ const PokemonPage = () => {
 					/>
 				</div>
 			</div>
+
+			<table className="w-1/2 mx-auto">
+				<tbody>
+					{content.stats.map((item: PokemonStatus) => (
+						<tr key={item.stat.name}>
+							<td className="w-1/4 border px-4 py-2">
+								{changeStatusName(item.stat.name)}
+							</td>
+							<td className="w-1/4 border px-4 py-2">{item.base_stat}</td>
+							<td className='w-1/2 border px-4 py-2'>
+								<div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+									<div className="bg-blue-600 h-2.5 rounded-full" style={{width:`${item.base_stat / 1.8}%`}}></div>
+								</div>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 
 			<Swiper
 				navigation={true}
@@ -161,6 +196,13 @@ const PokemonPage = () => {
 type FlavorTextType = {
 	flavor_text: String;
 	language: {
+		name: string;
+	};
+};
+
+type PokemonStatus = {
+	base_stat: number;
+	stat: {
 		name: string;
 	};
 };
