@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "./Header";
 
 export const Layout = ({children}:any) => {
   return (
@@ -10,7 +11,8 @@ export const Layout = ({children}:any) => {
 					content="create picture_book with pokemon_api"
 				/>
 			</Head>
-			<main className="container mx-auto">
+			<Header/>
+			<main className="container mx-auto mt-10">
 				{children}
 			</main>
 			<footer className="text-center p-6 border-t-2">
