@@ -105,7 +105,7 @@ const PokemonPage = () => {
 				</div>
 			</div>
 
-			<table className="w-1/2 mx-auto">
+			<table className="w-1/2 mx-auto mb-10">
 				<tbody>
 					{content.stats.map((item: PokemonStatus) => (
 						<tr key={item.stat.name}>
@@ -123,10 +123,12 @@ const PokemonPage = () => {
 				</tbody>
 			</table>
 
+			<div className='w-1/2 mx-auto'>
+				<p>【写真集】</p>
 			<Swiper
 				navigation={true}
 				modules={[Navigation]}
-				className="w-2/5 h-2/5 text-center"
+				className="w-full h-full text-center"
 			>
 				<SwiperSlide>
 					<Image
@@ -189,6 +191,7 @@ const PokemonPage = () => {
 					/>
 				</SwiperSlide>
 			</Swiper>
+			</div>
 		</Layout>
 	);
 };
