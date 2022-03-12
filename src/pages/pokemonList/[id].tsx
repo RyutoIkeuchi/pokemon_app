@@ -51,7 +51,13 @@ const PokemonPage = () => {
 	const changeGenerationName = (generationName: string) => {
 		switch (generationName) {
 			case 'generation-i':
-				return '第1世代';
+				return '第１世代';
+			case 'generation-ii':
+				return '第２世代';
+			case 'generation-iii':
+				return '第３世代';
+			case 'generation-iv':
+				return '第４世代';
 			default:
 				return '第？世代';
 		}

@@ -5,11 +5,9 @@ import {
 	faXmark,
 	faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { Layout } from '../components/template/Layout';
 
 const Home: NextPage = () => {
 	return (
-		<Layout>
 			<div className="flex flex-col items-center justify-center text-center min-h-screen">
 				<h1 className="flex justify-center items-center w-full mb-10">
 					<div className="w-1/4">
@@ -37,7 +35,6 @@ const Home: NextPage = () => {
 					</a>
 				</Link>
 			</div>
-		</Layout>
 	);
 };
 
