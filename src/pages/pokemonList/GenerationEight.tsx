@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { Layout } from '../../components/template/Layout';
 import PokemonCard from '../../components/template/PokemonCard';
 
-const GenerationThree = () => {
-	const [pokemonNumber, setPokemonNumber] = useState<number>(292);
+const GenerationEight = () => {
+	const [pokemonNumber, setPokemonNumber] = useState<number>(850);
 	const pokemonCardList = [];
 
-	for (let i = 252; i < pokemonNumber; i++) {
+	for (let i = 810; i < pokemonNumber; i++) {
 		pokemonCardList.push(<PokemonCard key={i} count={i} />);
 	}
 
 	const onNextPage = () => {
 		let newNumber = pokemonNumber + 40;
-		if (newNumber > 386) {
-			newNumber = 387;
+		if (newNumber > 898) {
+			newNumber = 899;
 		}
 		setPokemonNumber(newNumber);
 	};
@@ -56,7 +56,7 @@ const GenerationThree = () => {
 			</div>
 			<div className="grid grid-cols-4 gap-8 mb-10">{pokemonCardList}</div>
 			<div className="text-center w-full mb-6">
-				{pokemonNumber !== 387 ? (
+				{pokemonNumber !== 899 ? (
 					<button
 						onClick={onNextPage}
 						className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
@@ -69,4 +69,4 @@ const GenerationThree = () => {
 	);
 };
 
-export default GenerationThree;
+export default GenerationEight;

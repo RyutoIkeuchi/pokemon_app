@@ -31,7 +31,7 @@ const Header = () => {
 			</div>
 			<div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 				<div className="text-sm lg:flex-grow">
-					<Link href="/pokemonList">
+					<Link href="/pokemonList/GenerationOne">
 						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
 							第１世代
 						</a>
@@ -47,8 +47,28 @@ const Header = () => {
 						</a>
 					</Link>
 					<Link href="/pokemonList/GenerationFour">
-						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white">
+						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
 							第４世代
+						</a>
+					</Link>
+					<Link href="/pokemonList/GenerationFive">
+						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
+							第５世代
+						</a>
+					</Link>
+					<Link href="/pokemonList/GenerationSix">
+						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
+							第６世代
+						</a>
+					</Link>
+					<Link href="/pokemonList/GenerationSeven">
+						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
+							第７世代
+						</a>
+					</Link>
+					<Link href="/pokemonList/GenerationEight">
+						<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
+							第８世代
 						</a>
 					</Link>
 				</div>

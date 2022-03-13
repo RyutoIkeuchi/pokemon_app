@@ -11,7 +11,10 @@ const GenerationTwo = () => {
 	}
 
 	const onNextPage = () => {
-		const newNumber = pokemonNumber + 40;
+		let newNumber = pokemonNumber + 40;
+		if (newNumber > 251) {
+			newNumber = 252;
+		}
 		setPokemonNumber(newNumber);
 	};
 
@@ -53,12 +56,14 @@ const GenerationTwo = () => {
 			</div>
 			<div className="grid grid-cols-4 gap-8 mb-10">{pokemonCardList}</div>
 			<div className="text-center w-full mb-6">
-				<button
-					onClick={onNextPage}
-					className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
-				>
-					もっと読み込む
-				</button>
+				{pokemonNumber !== 252 ? (
+					<button
+						onClick={onNextPage}
+						className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
+					>
+						もっと読み込む
+					</button>
+				) : null}
 			</div>
 		</Layout>
 	);

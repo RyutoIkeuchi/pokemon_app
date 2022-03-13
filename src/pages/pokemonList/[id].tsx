@@ -58,6 +58,14 @@ const PokemonPage = () => {
 				return '第３世代';
 			case 'generation-iv':
 				return '第４世代';
+			case 'generation-v':
+				return '第５世代';
+			case 'generation-vi':
+				return '第６世代';
+			case 'generation-vii':
+				return '第７世代';
+			case 'generation-viii':
+				return '第８世代';
 			default:
 				return '第？世代';
 		}

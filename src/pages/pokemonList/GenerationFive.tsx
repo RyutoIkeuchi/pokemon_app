@@ -2,16 +2,19 @@ import { useState } from 'react';
 import { Layout } from '../../components/template/Layout';
 import PokemonCard from '../../components/template/PokemonCard';
 
-const PokemonList = () => {
-	const [pokemonNumber, setPokemonNumber] = useState<number>(41);
+const GenerationFive = () => {
+	const [pokemonNumber, setPokemonNumber] = useState<number>(534);
 	const pokemonCardList = [];
 
-	for (let i = 1; i < pokemonNumber; i++) {
+	for (let i = 494; i < pokemonNumber; i++) {
 		pokemonCardList.push(<PokemonCard key={i} count={i} />);
 	}
 
 	const onNextPage = () => {
-		const newNumber = pokemonNumber + 40;
+		let newNumber = pokemonNumber + 40;
+		if (newNumber > 649) {
+			newNumber = 650;
+		}
 		setPokemonNumber(newNumber);
 	};
 
@@ -53,15 +56,17 @@ const PokemonList = () => {
 			</div>
 			<div className="grid grid-cols-4 gap-8 mb-10">{pokemonCardList}</div>
 			<div className="text-center w-full mb-6">
-				<button
-					onClick={onNextPage}
-					className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
-				>
-					もっと読み込む
-				</button>
+				{pokemonNumber !== 650 ? (
+					<button
+						onClick={onNextPage}
+						className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
+					>
+						もっと読み込む
+					</button>
+				) : null}
 			</div>
 		</Layout>
 	);
 };
 
-export default PokemonList;
+export default GenerationFive;
