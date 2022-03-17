@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ const url = 'https://pokeapi.co/api/v2/pokemon';
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const PokemonCard = (props: { count: number }) => {
-	const { data, error } = useSWR(`${url}/${props.count}`, fetcher);
+	const { data, error } = useSWRImmutable(`${url}/${props.count}`, fetcher);
 
 	if (!data && !error)
 		return (

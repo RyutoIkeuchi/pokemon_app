@@ -1,19 +1,27 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { Layout } from '../../components/template/Layout';
 import PokemonCard from '../../components/template/PokemonCard';
 
-const GenerationFive = () => {
-	const [pokemonNumber, setPokemonNumber] = useState<number>(534);
+const PokemonListLayout = (props: Props) => {
+	const { startPokeNumber, endPokeNumber, generation } = props;
+	const [pokemonNumber, setPokemonNumber] = useState<number>(41);
 	const pokemonCardList = [];
 
-	for (let i = 494; i < pokemonNumber; i++) {
+	for (let i = startPokeNumber; i < pokemonNumber; i++) {
 		pokemonCardList.push(<PokemonCard key={i} count={i} />);
 	}
 
+	useEffect(() => {
+		console.log('マウント');
+		const newNumber = startPokeNumber + 40;
+		setPokemonNumber(newNumber);
+	},[generation, startPokeNumber]);
+
 	const onNextPage = () => {
 		let newNumber = pokemonNumber + 40;
-		if (newNumber > 649) {
-			newNumber = 650;
+		if (newNumber > endPokeNumber - 1) {
+			newNumber = endPokeNumber;
 		}
 		setPokemonNumber(newNumber);
 	};
@@ -56,7 +64,7 @@ const GenerationFive = () => {
 			</div>
 			<div className="grid grid-cols-4 gap-8 mb-10">{pokemonCardList}</div>
 			<div className="text-center w-full mb-6">
-				{pokemonNumber !== 650 ? (
+				{pokemonNumber !== endPokeNumber ? (
 					<button
 						onClick={onNextPage}
 						className="bg-gray-300 hover:bg-gray-400 text-gray-800 w-full font-bold py-2 px-4 rounded-r"
@@ -69,4 +77,10 @@ const GenerationFive = () => {
 	);
 };
 
-export default GenerationFive;
+type Props = {
+	startPokeNumber: number;
+	endPokeNumber: number;
+	generation: string | undefined | string[];
+};
+
+export default PokemonListLayout;

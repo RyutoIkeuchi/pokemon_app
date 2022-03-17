@@ -1,15 +1,5 @@
 import Link from 'next/link';
-
-const headerData = [
-	{ generation: '第１世代', link: 'GenerationOne' },
-	{ generation: '第２世代', link: 'GenerationTwo' },
-	{ generation: '第３世代', link: 'GenerationThree' },
-	{ generation: '第４世代', link: 'GenerationFour' },
-	{ generation: '第５世代', link: 'GenerationFive' },
-	{ generation: '第６世代', link: 'GenerationSix' },
-	{ generation: '第７世代', link: 'GenerationSeven' },
-	{ generation: '第８世代', link: 'GenerationEight' },
-];
+import { headerData } from '../../assets/constData';
 
 const Header = () => {
 	return (
@@ -42,8 +32,13 @@ const Header = () => {
 			</div>
 			<div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 				<div className="text-sm lg:flex-grow">
-					{headerData.map(data => (
-						<Link href={`/pokemonList/${data.link}`} key={data.generation}>
+					{headerData.map((data) => (
+						<Link
+							href={{
+								pathname: `/Generation/${data.id}`,
+							}}
+							key={data.id}
+						>
 							<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
 								{data.generation}
 							</a>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import { Layout } from '../../components/template/Layout';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -40,8 +40,8 @@ export const getStaticProps = async (props: { params: { id: number } }) => {
 
 const PokemonPage = ({ fallback }: any) => {	
 	const router = useRouter();
-	const { data: content, error } = useSWR(`${url}/${router.query.id}`, fetcher);
-	const { data: species } = useSWR(`${url2}/${router.query.id}`, fetcher);
+	const { data: content, error } = useSWRImmutable(`${url}/${router.query.id}`, fetcher);
+	const { data: species } = useSWRImmutable(`${url2}/${router.query.id}`, fetcher);
 
 	if ((!content || !species) && !error) return <h2>ローディングなう</h2>;
 	if (error) return <h2>エラーだよ</h2>;
