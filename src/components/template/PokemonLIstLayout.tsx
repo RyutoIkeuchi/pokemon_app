@@ -13,7 +13,6 @@ const PokemonListLayout = (props: Props) => {
 	}
 
 	useEffect(() => {
-		console.log('マウント');
 		const newNumber = startPokeNumber + 40;
 		setPokemonNumber(newNumber);
 	},[generation, startPokeNumber]);

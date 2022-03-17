@@ -37,7 +37,7 @@ const PokemonCard = (props: { count: number }) => {
 	};
 
 	return (
-		<Link href={`/pokemonList/${props.count}`}>
+		<Link href={`/pokemon/${props.count}`}>
 			<a>
 				<div className="bg-gray-100 p-4 shadow-lg hover:bg-gray-300">
 					<p className="text-right">{data.id}</p>

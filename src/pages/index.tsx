@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 						</a>
 					</div>
 				</h1>
-				<Link href="/Generation/first">
+				<Link href="/generation/first">
 					<a className="text-2xl underline font-bold">
 						ポケモン図鑑へGo
 						<FontAwesomeIcon icon={faArrowRightToBracket} className="ml-2" />

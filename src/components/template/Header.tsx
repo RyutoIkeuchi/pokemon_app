@@ -35,7 +35,7 @@ const Header = () => {
 					{headerData.map((data) => (
 						<Link
 							href={{
-								pathname: `/Generation/${data.id}`,
+								pathname: `/generation/${data.id}`,
 							}}
 							key={data.id}
 						>
