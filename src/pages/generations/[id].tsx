@@ -3,7 +3,7 @@ import PokemonListLayout from '../../components/template/PokemonLIstLayout';
 
 const Generations = () => {
 	const router = useRouter();
-	let startPokeNumber = 0;
+	let startPokeNumber = 1;
 	let endPokeNumber = 0;
 	const generation = router.query.id;
 
