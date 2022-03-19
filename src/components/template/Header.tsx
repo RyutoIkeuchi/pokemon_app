@@ -34,9 +34,8 @@ const Header = () => {
 				<div className="text-sm lg:flex-grow">
 					{headerData.map((data) => (
 						<Link
-							href={{
-								pathname: `/generation/${data.id}`,
-							}}
+							href='/generation/[id]'
+							as={`/generation/${data.id}`}
 							key={data.id}
 						>
 							<a className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4">
