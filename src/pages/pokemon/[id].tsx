@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
 import { SWRConfig } from 'swr';
+import { PokemonDetailLoading } from '../../components/template/Loading/PokemonDetailLoading';
 
 const url = 'https://pokeapi.co/api/v2/pokemon';
 const url2 = 'https://pokeapi.co/api/v2/pokemon-species';
@@ -25,7 +26,7 @@ export const getStaticPaths = () => {
 export const getStaticProps = async (props: { params: { id: number } }) => {
 	const { id } = props.params;
 	const CONTENT_API_URL = `${url}/${id}`;
-	const SPECIES_API_URL = `${url2}/${id}`
+	const SPECIES_API_URL = `${url2}/${id}`;
 	const content = await axios(CONTENT_API_URL);
 	const species = await axios(CONTENT_API_URL);
 	console.log(`${id}がSGされました`);
@@ -38,12 +39,19 @@ export const getStaticProps = async (props: { params: { id: number } }) => {
 	};
 };
 
-const PokemonPage = ({ fallback }: any) => {	
+const PokemonPage = ({ fallback }: any) => {
 	const router = useRouter();
-	const { data: content, error:contentError } = useSWRImmutable(`${url}/${router.query.id}`, fetcher);
-	const { data: species,error:speciesError } = useSWRImmutable(`${url2}/${router.query.id}`, fetcher);
+	const { data: content, error: contentError } = useSWRImmutable(
+		`${url}/${router.query.id}`,
+		fetcher
+	);
+	const { data: species, error: speciesError } = useSWRImmutable(
+		`${url2}/${router.query.id}`,
+		fetcher
+	);
 
-	if ((!content || !species) && (!contentError || !speciesError)) return <h2>ローディングなう</h2>;
+	if ((!content || !species) && (!contentError || !speciesError))
+		return <PokemonDetailLoading />;
 	if (contentError || speciesError) return <h2>エラーだよ</h2>;
 
 	const mainImageLoader = ({ src }: { src: string }) => {
@@ -71,8 +79,8 @@ const PokemonPage = ({ fallback }: any) => {
 	const flavorTextFilter = species.flavor_text_entries.find(
 		(text: FlavorTextType) => text.language.name === 'ja'
 	);
-	
 
+	
 	const changeGenerationName = (generationName: string) => {
 		switch (generationName) {
 			case 'generation-i':

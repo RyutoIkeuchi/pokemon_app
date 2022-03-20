@@ -1,5 +1,5 @@
 export const PokemonCardLoading = () => {
-  return (
+	return (
 		<div className="border border-blue-300 shadow rounded-md p-4 w-ful">
 			<div className="float-right h-4 bg-slate-200 w-1/12"></div>
 			<div className="w-36 h-36 mx-auto rounded-full bg-slate-200"></div>
@@ -15,4 +15,4 @@ export const PokemonCardLoading = () => {
 			</div>
 		</div>
 	);
-}
+};
