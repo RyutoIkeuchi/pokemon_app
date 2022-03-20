@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { headerData } from '../../assets/constData';
+import { headerData } from '../../assets/headerData';
 
 const Header = () => {
 	return (

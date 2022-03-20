@@ -1,25 +1,16 @@
 import useSWRImmutable from 'swr/immutable';
-import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PokemonCardLoading } from './Loading/PokemonCardLoading';
-
-const url = 'https://pokeapi.co/api/v2/pokemon';
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+import { fetcher } from '../../util/fetcher';
+import { POKEMON_URL } from '../../assets/urls';
+import { mainImageLoader, otherImageLoader } from '../../util/imageLoader';
 
 const PokemonCard = (props: { count: number }) => {
-	const { data, error } = useSWRImmutable(`${url}/${props.count}`, fetcher);
+	const { data, error } = useSWRImmutable(`${POKEMON_URL}/${props.count}`, fetcher);
 
 	if (!data && !error) return <PokemonCardLoading />;
 	if (error) return <h2>エラーだよ</h2>;
-
-	const mainImageLoader = ({ src }: { src: string }) => {
-		return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${src}.png`;
-	};
-
-	const otherImageLoader = ({ src }: { src: string }) => {
-		return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${src}.png`;
-	};
 
 	return (
 		<Link href={`/pokemon/${props.count}`}>
