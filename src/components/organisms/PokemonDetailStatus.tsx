@@ -1,4 +1,4 @@
-import { Content, PokemonDetail, PokemonStatus } from '../../types/PokemonDetail';
+import { Content, PokemonStatus } from '../../types/PokemonDetailType';
 
 export const PokemonDetailStatus = (props:{content:Content}) => {
 	const { content } = props;

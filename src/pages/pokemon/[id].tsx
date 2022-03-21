@@ -11,8 +11,15 @@ import { PokemonDetailStatus } from '../../components/organisms/PokemonDetailSta
 import { usePokemonDetail } from '../../hooks/usePokemonDetail';
 import { PokemonDetailInfo } from '../../components/organisms/PokemonDetailInfo';
 import { POKEMON_SPECIES_URL, POKEMON_URL } from '../../assets/urls';
-import { other2ImageLoader, other3ImageLoader, other4ImageLoader, other5ImageLoader, other6ImageLoader, otherImageLoader } from '../../util/imageLoader';
-import { FlavorText } from '../../types/PokemonDetail';
+import {
+	other2ImageLoader,
+	other3ImageLoader,
+	other4ImageLoader,
+	other5ImageLoader,
+	other6ImageLoader,
+	otherImageLoader,
+} from '../../util/imageLoader';
+import { PokemonDetailContent } from '../../components/organisms/PokemonDetailContent';
 
 export const getStaticPaths = () => {
 	const paths = [...Array(898)].map((id, index) => ({
@@ -40,21 +47,18 @@ export const getStaticProps = async (props: { params: { id: number } }) => {
 };
 
 const PokemonPage = ({ fallback }: any) => {
-	const { id,content, species, isLoading, isError } = usePokemonDetail();
-
-	if (isLoading)
-		return <PokemonDetailLoading />;
+	const { id, content, species, isLoading, isError } =
+		usePokemonDetail();
+	
+	if (isLoading) return <PokemonDetailLoading />;
 	if (isError) return <h2>エラーだよ</h2>;
-
-	const flavorTextFilter = species.flavor_text_entries.find(
-		(text: FlavorText) => text.language.name === 'ja'
-	);
-
+	
 	return (
 		<SWRConfig value={{ fallback }}>
 			<Layout>
-				<PokemonDetailInfo species={species} content={content} id={id}/>
-				<PokemonDetailStatus content={content}/>
+				<PokemonDetailInfo species={species} content={content} id={id} />
+				<PokemonDetailStatus content={content} />
+				<PokemonDetailContent species={species} content={content}/>
 				<div className="w-1/2 mx-auto">
 					<p>【写真集】</p>
 					<Swiper

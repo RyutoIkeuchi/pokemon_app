@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Content, Species } from '../../types/PokemonDetail';
+import { Content, Species } from '../../types/PokemonDetailType';
 import { mainImageLoader } from '../../util/imageLoader';
 
 export const PokemonDetailInfo = (props: {

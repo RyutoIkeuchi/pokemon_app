@@ -20,6 +20,7 @@ export type Content = {
 	id: number;
 	weight: number;
 	height: number;
+	types: any;
 };
 
 export type FlavorText = {
@@ -33,5 +34,13 @@ export type PokemonStatus = {
 	base_stat: number;
 	stat: {
 		name: string;
+	};
+};
+
+export type PokemonType = {
+  slot: number;
+	type: {
+		name: string;
+		url: string;
 	};
 };
