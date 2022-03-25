@@ -3,10 +3,10 @@ export const mainImageLoader = ({ src }: { src: string }) => {
 };
 
 export const otherImageLoader = ({ src }: { src: string }) => {
-	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${src}.png`;
+	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${src}.png `;
 };
 export const other2ImageLoader = ({ src }: { src: string }) => {
-	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${src}.png `;
+	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${src}.png`;
 };
 export const other3ImageLoader = ({ src }: { src: string }) => {
 	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${src}.png`;
